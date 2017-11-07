@@ -95,12 +95,25 @@ if __name__ == '__main__':
   # running in production *do not* leave this option enabled.
   os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
   client = get_authenticated_service()
-  with open('songs.csv', 'rb') as csvfile:
+  songs_data = open('dataset.csv', 'w')
+
+  # create the csv writer object
+
+  csvwriter = csv.writer(songs_data)
+  with open('ResidentData.csv', 'rb') as csvfile:
       spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+      new_row = []
       for row in spamreader:
+          new_row = row
           Id = str(row[0])
-          Song_name = row[1]
-          r = videos_list_by_id(client,
-          part='snippet,contentDetails,statistics',
-          id=Id)
-          views = r['items'][0]['statistics']['viewCount']
+        #   Song_name = row[1]
+          if Id == "data_set_id":
+              new_row.append("viewCount")
+          else:
+              r = videos_list_by_id(client,
+              part='snippet,contentDetails,statistics',
+              id=Id)
+              views = r['items'][0]['statistics']['viewCount']
+              new_row.append(views)
+          csvwriter.writerow(new_row)
+  songs_data.close()
