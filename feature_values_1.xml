@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!DOCTYPE feature_vector_file [
+   <!ELEMENT feature_vector_file (comments, data_set+)>
+   <!ELEMENT comments (#PCDATA)>
+   <!ELEMENT data_set (data_set_id, section*, feature*)>
+   <!ELEMENT data_set_id (#PCDATA)>
+   <!ELEMENT section (feature+)>
+   <!ATTLIST section start CDATA ""
+                     stop CDATA "">
+   <!ELEMENT feature (name, v+)>
+   <!ELEMENT name (#PCDATA)>
+   <!ELEMENT v (#PCDATA)>
+]>
+
+<feature_vector_file>
+
+   <comments></comments>
+
+	<data_set>
+		<data_set_id>/home/suma1998/Music/bird.wav</data_set_id>
+		<feature>
+			<name>Spectral Centroid Overall Standard Deviation</name>
+			<v>2.302E1</v>
+		</feature>
+		<feature>
+			<name>Spectral Rolloff Point Overall Standard Deviation</name>
+			<v>1.627E-1</v>
+		</feature>
+		<feature>
+			<name>Spectral Flux Overall Standard Deviation</name>
+			<v>2.213E-4</v>
+		</feature>
+		<feature>
+			<name>Compactness Overall Standard Deviation</name>
+			<v>1.328E2</v>
+		</feature>
+		<feature>
+			<name>Spectral Variability Overall Standard Deviation</name>
+			<v>3.883E-4</v>
+		</feature>
+		<feature>
+			<name>Root Mean Square Overall Standard Deviation</name>
+			<v>1.4E-2</v>
+		</feature>
+		<feature>
+			<name>Fraction Of Low Energy Windows Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Zero Crossings Overall Standard Deviation</name>
+			<v>2.847E1</v>
+		</feature>
+		<feature>
+			<name>Strongest Beat Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Beat Sum Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Strength Of Strongest Beat Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Spectral Centroid Overall Average</name>
+			<v>5.141E1</v>
+		</feature>
+		<feature>
+			<name>Spectral Rolloff Point Overall Average</name>
+			<v>3.352E-1</v>
+		</feature>
+		<feature>
+			<name>Spectral Flux Overall Average</name>
+			<v>1.004E-4</v>
+		</feature>
+		<feature>
+			<name>Compactness Overall Average</name>
+			<v>1.523E3</v>
+		</feature>
+		<feature>
+			<name>Spectral Variability Overall Average</name>
+			<v>2.819E-4</v>
+		</feature>
+		<feature>
+			<name>Root Mean Square Overall Average</name>
+			<v>1.17E-2</v>
+		</feature>
+		<feature>
+			<name>Fraction Of Low Energy Windows Overall Average</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Zero Crossings Overall Average</name>
+			<v>1.279E2</v>
+		</feature>
+		<feature>
+			<name>Strongest Beat Overall Average</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Beat Sum Overall Average</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Strength Of Strongest Beat Overall Average</name>
+			<v>0E0</v>
+		</feature>
+	</data_set>
+
+	<data_set>
+		<data_set_id>/home/suma1998/Music/cow.wav</data_set_id>
+		<feature>
+			<name>Spectral Centroid Overall Standard Deviation</name>
+			<v>5.851E0</v>
+		</feature>
+		<feature>
+			<name>Spectral Rolloff Point Overall Standard Deviation</name>
+			<v>8.306E-2</v>
+		</feature>
+		<feature>
+			<name>Spectral Flux Overall Standard Deviation</name>
+			<v>3.354E-3</v>
+		</feature>
+		<feature>
+			<name>Compactness Overall Standard Deviation</name>
+			<v>2.196E2</v>
+		</feature>
+		<feature>
+			<name>Spectral Variability Overall Standard Deviation</name>
+			<v>3.223E-3</v>
+		</feature>
+		<feature>
+			<name>Root Mean Square Overall Standard Deviation</name>
+			<v>1.22E-1</v>
+		</feature>
+		<feature>
+			<name>Fraction Of Low Energy Windows Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Zero Crossings Overall Standard Deviation</name>
+			<v>1.163E1</v>
+		</feature>
+		<feature>
+			<name>Strongest Beat Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Beat Sum Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Strength Of Strongest Beat Overall Standard Deviation</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Spectral Centroid Overall Average</name>
+			<v>1.709E1</v>
+		</feature>
+		<feature>
+			<name>Spectral Rolloff Point Overall Average</name>
+			<v>8.44E-2</v>
+		</feature>
+		<feature>
+			<name>Spectral Flux Overall Average</name>
+			<v>3.118E-3</v>
+		</feature>
+		<feature>
+			<name>Compactness Overall Average</name>
+			<v>1.655E3</v>
+		</feature>
+		<feature>
+			<name>Spectral Variability Overall Average</name>
+			<v>9.557E-3</v>
+		</feature>
+		<feature>
+			<name>Root Mean Square Overall Average</name>
+			<v>3.634E-1</v>
+		</feature>
+		<feature>
+			<name>Fraction Of Low Energy Windows Overall Average</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Zero Crossings Overall Average</name>
+			<v>3.738E1</v>
+		</feature>
+		<feature>
+			<name>Strongest Beat Overall Average</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Beat Sum Overall Average</name>
+			<v>0E0</v>
+		</feature>
+		<feature>
+			<name>Strength Of Strongest Beat Overall Average</name>
+			<v>0E0</v>
+		</feature>
+	</data_set>
+
+</feature_vector_file>
