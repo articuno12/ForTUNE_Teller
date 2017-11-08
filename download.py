@@ -113,7 +113,11 @@ if __name__ == '__main__':
               r = videos_list_by_id(client,
               part='snippet,contentDetails,statistics',
               id=Id)
-              views = r['items'][0]['statistics']['viewCount']
+              print r
+              if len(r['items'])==0:
+                  views = 0
+              else:
+                  views = r['items'][0]['statistics']['viewCount']
               new_row.append(views)
           csvwriter.writerow(new_row)
   songs_data.close()
