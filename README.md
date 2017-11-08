@@ -11,3 +11,15 @@ Song Popularity Predictor
 5. Run download.py
 <br>
 6. Repeat for every playlist. 
+
+### How to install the dependencies?
+<br>
+sudo pip install --upgrade youtube_dl <br>
+sudo pip install python-oauth2         <br>
+sudo pip install google <br>
+sudo  pip install --upgrade oauth2client <br>
+sudo pip install --upgrade google-api-python-client <br>
+sudo  pip install oauth2 <br>
+sudo pip install google-auth <br>
+sudo pip install --upgrade google-cloud <br>
+sudo pip install google-auth-oauthlib  <br>
