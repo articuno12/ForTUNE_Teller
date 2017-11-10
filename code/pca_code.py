@@ -28,7 +28,7 @@ operational_data=data[1:,3:181]
 #lavel defination 
 for i in range(0 , len(labels)):
     
-    if(label[i]>501 and label[i]<=20000):
+    if(label[i]<=20000):
         label[i]=1
     if (label[i]>20000 and label[i]<=60000):
         label[i]=2
