@@ -19,6 +19,7 @@ from sklearn.datasets import load_iris
 
 data = np.loadtxt("/Users/garima/work/smai/prokect/ForTUNE_Teller/dataset/final_dataset.csv", dtype=np.object, delimiter=",")
 labels = data[1:,182]
+view_count = labels.astype(int)
 label =labels.astype(int)
 
 operational_data=data[1:,3:181]
@@ -41,10 +42,11 @@ for i in range(0 , len(labels)):
 
         
 #pca code
-pca = decomposition.PCA(n_components=50)
+pca = decomposition.PCA(n_components=20)
 X_r = pca.fit(operational_data).transform(operational_data)
 
         
 df = pd.DataFrame(X_r)
-df[50]= label
-df.to_csv("file_50_feat.csv")
+df[20]= view_count
+df[21]= label
+df.to_csv("file_20_feat.csv")
