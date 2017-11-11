@@ -20,9 +20,12 @@ X_train, X_test, y_train, y_test = train_test_split(data, Y, test_size=test_size
 print X_train.shape, X_test.shape, y_train.shape,y_test.shape
 X_t = X_train.drop("20",axis =1)
 X_tt= X_t.drop("21",axis =1)
+X_TRAIN = X_tt.drop("data_set_id",axis =1)
 X_t1 = X_test.drop("20",axis =1)
 X_tEST= X_t1.drop("21",axis =1)
+X_TEST = X_tEST.drop("data_set_id",axis =1)
 y_labels = X_test["21"]
+print X_TEST.shape,X_TRAIN.shape
 from sklearn import preprocessing
 
 x = X_train.values #returns a numpy array
@@ -74,11 +77,11 @@ model = xgb.XGBRegressor(learning_rate = xgb_params['eta'], max_depth = 4,
 # gridsearch.fit(X_train,y_train)
 # print gridsearch.best_params_
 # print("gridsearch complete")
-model.fit(X_tt,y_train)
+model.fit(X_TRAIN,y_train)
 # fig, ax = plt.subplots(figsize=(100,100))
 # xgb.plot_importance(model, ax=ax)
 # plt.show()
-y_predcited = model.predict(X_tEST)
+y_predcited = model.predict(X_TEST)
 label = y_predcited
 for i in range(len(y_predcited)):
     if(y_predcited[i]<=20000):
