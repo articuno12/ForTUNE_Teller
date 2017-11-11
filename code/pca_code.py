@@ -51,23 +51,30 @@ df[20]= view_count
 df[21]= label
 df.to_csv("file_20_feat.csv")
 
-#plot variables 
-f, axarr = plt.subplots(2, 3) #for subplot need to adjustfor dataset
+ 
+#visualization
+f, axarr = plt.subplots(2, 3) 
 p=0
 q=0
 lw = 2 
 for i  in range (0, len(label)):
     if (label[i]==1):
         axarr[0, 0].scatter(X_r[i, 0], X_r[i, 1], color='red', alpha=.8, lw=lw)
+        axarr[1, 2].scatter(X_r[i, 0], X_r[i, 1], color='red', alpha=.8, lw=lw)
     if (label[i]==2):
         axarr[0, 1].scatter(X_r[i, 0], X_r[i, 1], color='blue', alpha=.8, lw=lw)
+        axarr[1, 2].scatter(X_r[i, 0], X_r[i, 1], color='blue', alpha=.8, lw=lw)
     if (label[i]==3):
         axarr[0, 2].scatter(X_r[i, 0], X_r[i, 1], color='green', alpha=.8, lw=lw)
-    if (label[i]==3):
+        axarr[1, 2].scatter(X_r[i, 0], X_r[i, 1], color='green', alpha=.8, lw=lw)
+    if (label[i]==4):
         axarr[1, 0].scatter(X_r[i, 0], X_r[i, 1], color='yellow', alpha=.8, lw=lw)
+        axarr[1, 2].scatter(X_r[i, 0], X_r[i, 1], color='yellow', alpha=.8, lw=lw)
     if (label[i]==5):
         axarr[1, 1].scatter(X_r[i, 0], X_r[i, 1], color='black', alpha=.8, lw=lw)
-
+        axarr[1, 2].scatter(X_r[i, 0], X_r[i, 1], color='black', alpha=.8, lw=lw)
+   
+    
 
     
 plt.show()
