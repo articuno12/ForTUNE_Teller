@@ -36,7 +36,7 @@ X_tEST= X_t1.drop("21",axis =1)
 X_TEST = X_tEST.drop("data_set_id",axis =1)
 y_labels = X_test["21"]
 
-ridge_regress = linear_model.Ridge(alpha=0.00001)
+ridge_regress = linear_model.Ridge(alpha=0.000000001)
 ridge_regress.fit(X_TRAIN, y_train)
 #print ridge_regress
 unrounded_y_pred = ridge_regress.predict(X_TEST)
@@ -66,8 +66,8 @@ for i in range(len(y_pred)):
 
 print "labels"
 
-for i in range(len(label)):
-	print i, label[i], y_labels.values[i]
+#for i in range(len(label)):
+#	print i, label[i], y_labels.values[i]
 
 acc_score = sklearn.metrics.accuracy_score(y_labels, label)
 print acc_score
