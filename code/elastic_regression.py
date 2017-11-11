@@ -45,11 +45,11 @@ y_pred = np.round(unrounded_y_pred)
 var = y_test - y_pred
 inc = sum(abs(var))
 flag = inc/len(X_TRAIN)
-print "flag = " 
-print flag
+#print "flag = " 
+#print flag
 final_acc = 1 - flag
-for i in range(len(y_pred)):
-    print abs(y_pred[i])
+#for i in range(len(y_pred)):
+#    print abs(y_pred[i])
 label = []
 
 for i in range(len(y_pred)):
@@ -66,8 +66,8 @@ for i in range(len(y_pred)):
 
 #print "labels"
 
-#for i in range(len(label)):
-#	print i, label[i], y_labels.values[i]
+for i in range(len(label)):
+	print label[i]
 
 acc_score = sklearn.metrics.accuracy_score(y_labels, label)
 print acc_score
