@@ -64,7 +64,7 @@ for i in range(len(y_pred)):
 	if(y_pred[i]>2000000 and y_pred[i]<=1900000000):
 		label.append(5)
 
-print "labels"
+#print "labels"
 
 #for i in range(len(label)):
 #	print i, label[i], y_labels.values[i]
