@@ -59,7 +59,7 @@ for i in range(len(y_pred)):
 		label.append(2)
 	if(y_pred[i]>60000 and y_pred[i]<=300000):
 		label.append(3)
-	if(y_pred[i]>300000and y_pred[i]<=2000000):
+	if(y_pred[i]>300000 and y_pred[i]<=2000000):
 		label.append(4)
 	if(y_pred[i]>2000000 and y_pred[i]<=1900000000):
 		label.append(5)
