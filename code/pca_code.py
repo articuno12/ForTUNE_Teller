@@ -17,7 +17,7 @@ from sklearn import decomposition
 from sklearn.datasets import load_boston
 from sklearn.datasets import load_iris
 
-data = np.loadtxt("/Users/garima/work/smai/prokect/ForTUNE_Teller/dataset/final_dataset.csv", dtype=np.object, delimiter=",")
+data = np.loadtxt("../dataset/final_dataset_debut.csv", dtype=np.object, delimiter=",")
 labels = data[1:,182]
 view_count = labels.astype(int)
 label =labels.astype(int)
@@ -25,9 +25,9 @@ label =labels.astype(int)
 operational_data=data[1:,3:181]
 
 
-#lavel defination 
+#lavel defination
 for i in range(0 , len(labels)):
-    
+
     if(label[i]<=20000):
         label[i]=1
     if (label[i]>20000 and label[i]<=60000):
@@ -40,23 +40,23 @@ for i in range(0 , len(labels)):
         label[i]=5
 
 
-        
+
 #pca code
 pca = decomposition.PCA(n_components=20)
 X_r = pca.fit(operational_data).transform(operational_data)
 
-        
+
 df = pd.DataFrame(X_r)
 df[20]= view_count
 df[21]= label
 df.to_csv("file_20_feat.csv")
 
- 
+
 #visualization
-f, axarr = plt.subplots(2, 3) 
+f, axarr = plt.subplots(2, 3)
 p=0
 q=0
-lw = 2 
+lw = 2
 for i  in range (0, len(label)):
     if (label[i]==1):
         axarr[0, 0].scatter(X_r[i, 0], X_r[i, 1], color='red', alpha=.8, lw=lw)
@@ -73,8 +73,8 @@ for i  in range (0, len(label)):
     if (label[i]==5):
         axarr[1, 1].scatter(X_r[i, 0], X_r[i, 1], color='black', alpha=.8, lw=lw)
         axarr[1, 2].scatter(X_r[i, 0], X_r[i, 1], color='black', alpha=.8, lw=lw)
-   
-    
 
-    
+
+
+
 plt.show()
