@@ -17,15 +17,16 @@ from sklearn import decomposition
 from sklearn.datasets import load_boston
 from sklearn.datasets import load_iris
 
-data = np.loadtxt("../dataset/final_dataset_debut.csv", dtype=np.object, delimiter=",")
-labels = data[1:,182]
+data = np.loadtxt("../dataset/final_dataset_cleaned.csv", dtype=np.object, delimiter=",")
+print data.shape
+labels = data[1:,184]
 view_count = labels.astype(int)
 label =labels.astype(int)
 
-operational_data=data[1:,3:181]
+operational_data=data[1:,2:183]
 
 
-#lavel defination
+#label defination
 for i in range(0 , len(labels)):
 
     if(label[i]<=20000):
@@ -34,9 +35,9 @@ for i in range(0 , len(labels)):
         label[i]=2
     if(label[i]>60000 and label[i]<=300000):
         label[i]=3
-    if(label[i]>300000and label[i]<=2000000):
+    if(label[i]>300000 and label[i]<=3000000):
         label[i]=4
-    if(label[i]>2000000 and label[i]<=1900000000):
+    if(label[i]>3000000):
         label[i]=5
 
 

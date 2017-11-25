@@ -11,6 +11,14 @@ Song Popularity Predictor
 
 - final_dataset_debut_cleaned.csv : Cleaned version of dataset_debut.csv; No. of features: 183 (Including View count and ids).
 
+- final_20.csv : Features reduced to 20 for final_dataset_cleaned.csv
+
+- final_50.csv :  Features reduced to 20 for final_dataset_cleaned.csv
+
+- final_debut_20.csv :  Features reduced to 20 for final_dataset_debut_cleaned.csv
+
+- final_debut_50.csv :  Features reduced to 50 for final_dataset_debut_cleaned.csv
+
 #### TODO
 - Add labels
 - Appy PCA on final_dataset and final_debut_dataset to reduce features to 20
