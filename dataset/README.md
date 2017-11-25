@@ -18,8 +18,3 @@ Song Popularity Predictor
 - final_debut_20.csv :  Features reduced to 20 for final_dataset_debut_cleaned.csv
 
 - final_debut_50.csv :  Features reduced to 50 for final_dataset_debut_cleaned.csv
-
-#### TODO
-- Add labels
-- Appy PCA on final_dataset and final_debut_dataset to reduce features to 20
-- Appy PCA on final_dataset and final_debut_dataset to reduce features to 20

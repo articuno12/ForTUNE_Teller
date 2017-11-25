@@ -17,13 +17,13 @@ from sklearn import decomposition
 from sklearn.datasets import load_boston
 from sklearn.datasets import load_iris
 
-data = np.loadtxt("../dataset/final_dataset_cleaned.csv", dtype=np.object, delimiter=",")
+data = np.loadtxt("../dataset/final_dataset_debut_cleaned.csv", dtype=np.object, delimiter=",")
 print data.shape
-labels = data[1:,184]
+labels = data[1:,183]
 view_count = labels.astype(int)
 label =labels.astype(int)
 
-operational_data=data[1:,2:183]
+operational_data=data[1:,2:182]
 
 
 #label defination
@@ -48,9 +48,9 @@ X_r = pca.fit(operational_data).transform(operational_data)
 
 
 df = pd.DataFrame(X_r)
-df[20]= view_count
-df[21]= label
-df.to_csv("file_20_feat.csv")
+df["views"]= view_count
+df["label"]= label
+df.to_csv("final_debut_20.csv")
 
 
 #visualization
