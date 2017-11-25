@@ -15,7 +15,7 @@ final_data = valid_result.drop(valid_result.columns[remove],axis=1)
 print final_data.shape
 
 #final data in csv
-final_data.to_csv("../dataset/final_dataset_non_debut.csv")
+final_data.to_csv("../dataset/final_dataset_debut_cleaned.csv")
 
 # for cases where we are handling missing values, use this dataset
 # remove = []
