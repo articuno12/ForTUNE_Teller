@@ -7,8 +7,9 @@ from xgboost.sklearn import XGBClassifier
 from sklearn.model_selection import GridSearchCV   #Perforing grid search
 from sklearn.metrics import mean_squared_error,mean_absolute_error,accuracy_score,f1_score, confusion_matrix
 import matplotlib.pyplot as plt
+import sys
 
-data = pd.read_csv("../dataset/final_debut_20.csv")
+data = pd.read_csv(sys.argv[1])
 print data.shape
 
 Y = data["label"]
@@ -40,12 +41,16 @@ xgb_params = {
     'colsample_bytree' : 1,
     'gamma' : 1
 }
+param_test = { 'learning_rate':[0.08,0.05,0.1],'n_estimators':[500,800],'max_depth':[5,10], 'min_child_weight':[0.8,1], 'gamma' : [0.01,0.05], 'subsample' : [0.8,0.5], 'colsample_bytree' : [1,0.5,0.8] }
+print("training parameters : ",param_test)
 model = xgb.XGBClassifier(learning_rate = xgb_params['learning_rate'], max_depth = 10,
 						n_estimators = 800, silent = xgb_params['silent'],
 						objective = xgb_params['objective'],
 						min_child_weight = 0.5, gamma = 0.01 ,
 						subsample = 0.8, colsample_bytree = 1 )
-model.fit(X_TRAIN,y_train)
-y_predcited = model.predict(X_TEST)
-print accuracy_score(y_test,y_predcited)
-print confusion_matrix(y_test, y_predcited)
+gridsearch = GridSearchCV(estimator = model, param_grid = param_test, verbose=10 ,
+			cv=5,  n_jobs = 5,iid=False)
+
+gridsearch.fit(X_TRAIN,y_train)
+print gridsearch.best_params_
+print("gridsearch complete")

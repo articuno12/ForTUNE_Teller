@@ -56,16 +56,7 @@ xgb_params = {
     'gamma' : 1
 }
 
-dtrain = xgb.DMatrix(X_train, y_train)
-# # dtest = xgb.DMatrix(X_test)
-#
-#
-# Training num_boost_round
-cvresult = xgb.cv(xgb_params, dtrain, num_boost_round=1000,nfold=3,metrics='mae', early_stopping_rounds=200,verbose_eval=True)
-print("num_boost_round = ",cvresult.shape[0])
 
-xgb_params['n_estimators'] = cvresult.shape[0]
-print("n_estimators trained to : ", xgb_params['n_estimators'])
 
 param_test = { 'learning_rate':[0.08,0.05,0.1],'n_estimators':[500,800],'max_depth':[5,10], 'min_child_weight':[0.8,1], 'gamma' : [0.01,0.05], 'subsample' : [0.8,0.5], 'colsample_bytree' : [1,0.5,0.8] }
 print("training parameters : ",param_test)
@@ -81,26 +72,3 @@ gridsearch = GridSearchCV(estimator = model, param_grid = param_test, verbose=10
 gridsearch.fit(X_train,y_train)
 print gridsearch.best_params_
 print("gridsearch complete")
-# model.fit(X_TRAIN,y_train)
-# print model.feature_importances_
-# plt.bar(range(len(model.feature_importances_)), model.feature_importances_)
-# plt.show()
-# # fig, ax = plt.subplots(figsize=(100,100))
-# # xgb.plot_importance(model, ax=ax)
-# # plt.show()
-# y_predcited = model.predict(X_TEST)
-# label = y_predcited
-# for i in range(len(y_predcited)):
-#     if(y_predcited[i]<=20000):
-#         label[i]=1
-#     if (y_predcited[i]>20000 and y_predcited[i]<=60000):
-#         label[i]=2
-#     if(y_predcited[i]>60000 and y_predcited[i]<=300000):
-#         label[i]=3
-#     if(y_predcited[i]>300000 and y_predcited[i]<=2000000):
-#         label[i]=4
-#     if(y_predcited[i]>2000000 and y_predcited[i]<=1900000000):
-#         label[i]=5
-#
-# print accuracy_score(y_labels,label)
-# print confusion_matrix(y_labels, label)

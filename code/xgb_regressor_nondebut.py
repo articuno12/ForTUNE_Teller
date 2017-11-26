@@ -3,12 +3,13 @@ import numpy as np
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-# from xgboost.sklearn import XGBRegressor
+from xgboost.sklearn import XGBRegressor
 from sklearn.model_selection import GridSearchCV   #Perforing grid search
 from sklearn.metrics import mean_squared_error,mean_absolute_error,accuracy_score,f1_score, confusion_matrix
 import matplotlib.pyplot as plt
+import sys
 
-data = pd.read_csv("../dataset/final_debut_20.csv")
+data = pd.read_csv(sys.argv[1])
 print data.shape
 
 Y = data["views"]
@@ -56,10 +57,11 @@ xgb_params = {
 }
 
 model = xgb.XGBRegressor(learning_rate = 0.08, max_depth = 10,
-						n_estimators = 500, silent = xgb_params['silent'],
+						n_estimators = 800, silent = xgb_params['silent'],
 						objective = xgb_params['objective'],
-						min_child_weight = 0.1, gamma = 0.01 ,
-						subsample = 0.8, colsample_bytree = 1 )
+						min_child_weight = 1, gamma = 0.05 ,
+						subsample = 0.8
+                        , colsample_bytree = 1 )
 
 model.fit(X_TRAIN,y_train)
 print model.feature_importances_
