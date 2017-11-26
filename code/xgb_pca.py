@@ -46,7 +46,7 @@ xgb_params = {
     'max_depth': 5,
     'subsample': 1,
     'objective': 'reg:linear',
-    'eval_metric': 'rmse',
+    'eval_metric': 'mae',
     'lambda': 0.8,
     'alpha': 0.4,
     'base_score': y_mean,
@@ -67,7 +67,7 @@ print("num_boost_round = ",cvresult.shape[0])
 xgb_params['n_estimators'] = cvresult.shape[0]
 print("n_estimators trained to : ", xgb_params['n_estimators'])
 
-param_test = { 'learning_rate':[0.08,0.03],'n_estimators':[400,500,800,72],'max_depth':[12,20,10], 'min_child_weight':[0.5,0.01], 'gamma' : [0.01,0.05], 'subsample' : [0.8,0.1], 'colsample_bytree' : [1] }
+param_test = { 'learning_rate':[0.08,0.05,0.1],'n_estimators':[500,800],'max_depth':[5,10], 'min_child_weight':[0.8,1], 'gamma' : [0.01,0.05], 'subsample' : [0.8,0.5], 'colsample_bytree' : [1,0.5,0.8] }
 print("training parameters : ",param_test)
 model = xgb.XGBRegressor(learning_rate = xgb_params['eta'], max_depth = xgb_params['max_depth'],
 						n_estimators = xgb_params['n_estimators'], silent = xgb_params['silent'],
@@ -76,7 +76,7 @@ model = xgb.XGBRegressor(learning_rate = xgb_params['eta'], max_depth = xgb_para
 						subsample = xgb_params['subsample'], colsample_bytree = xgb_params['colsample_bytree'] )
 
 gridsearch = GridSearchCV(estimator = model, param_grid = param_test, verbose=10 ,
-			cv=5, scoring='neg_mean_squared_error', n_jobs = 5,iid=False)
+			cv=5, scoring='neg_mean_absolute_error', n_jobs = 5,iid=False)
 
 gridsearch.fit(X_train,y_train)
 print gridsearch.best_params_

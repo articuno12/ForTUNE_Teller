@@ -7,36 +7,30 @@ from xgboost.sklearn import XGBRegressor
 from sklearn.model_selection import GridSearchCV   #Perforing grid search
 from sklearn.metrics import mean_squared_error,mean_absolute_error,accuracy_score,f1_score, confusion_matrix
 import matplotlib.pyplot as plt
-
-data = pd.read_csv("../dataset/final_debut_50.csv")
+import sys
+data = pd.read_csv(sys.argv[1])
 print data.shape
 
-Y = data["views"]
+Y = data["viewCount"]
 
 
 seed = 7
 test_size = 0.25
 X_train, X_test, y_train, y_test = train_test_split(data, Y, test_size=test_size, random_state=seed)
 print X_train.shape, X_test.shape, y_train.shape,y_test.shape
-X_t = X_train.drop("views",axis =1)
+X_t = X_train.drop("viewCount",axis =1)
 X_tt= X_t.drop("label",axis =1)
-X_TRAIN = X_tt.drop("ID",axis =1)
-X_t1 = X_test.drop("views",axis =1)
+X_ttt= X_tt.drop("data_set_id",axis =1)
+X_TRAIN = X_ttt.drop("ID",axis =1)
+X_t1 = X_test.drop("viewCount",axis =1)
 X_tEST= X_t1.drop("label",axis =1)
-X_TEST = X_tEST.drop("ID",axis =1)
+X_ts= X_tEST.drop("data_set_id",axis =1)
+X_TEST = X_ts.drop("ID",axis =1)
 # x_test = X_TEST["1","2","7","14","18"]
 # x_train = X_TRAIN["1","2","7","14","18"]
 y_labels = X_test["label"]
 print X_TEST.shape,X_TRAIN.shape
-from sklearn import preprocessing
 
-x = X_train.values #returns a numpy array
-min_max_scaler = preprocessing.MinMaxScaler()
-x_scaled = min_max_scaler.fit_transform(x)
-X_N_train = pd.DataFrame(x_scaled)
-x_n = X_test.values
-x_scaled = min_max_scaler.fit_transform(x_n)
-X_N_test = pd.DataFrame(x_scaled)
 
 y_mean = np.mean(y_train)
 xgb_params = {
@@ -55,10 +49,10 @@ xgb_params = {
     'gamma' : 1
 }
 
-model = xgb.XGBRegressor(learning_rate = 0.03, max_depth = 10,
+model = xgb.XGBRegressor(learning_rate = 0.03, max_depth = 12,
 						n_estimators = 800, silent = xgb_params['silent'],
 						objective = xgb_params['objective'],
-						min_child_weight = 0.5, gamma = 0.01 ,
+						min_child_weight = 1, gamma = 0.01 ,
 						subsample = 0.8, colsample_bytree = 1 )
 
 model.fit(X_TRAIN,y_train)
