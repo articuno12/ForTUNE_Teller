@@ -14,7 +14,8 @@ from math import *
 import random
 
 #data = np.genfromtxt('/home/naila/5thSemester/SMAI/Codes/file_20_feat.csv',delimiter = ',')
-data = pd.read_csv("final_debut_50.csv")
+arg = sys.argv[1]
+data = pd.read_csv(arg)
 
 Y = data["views"]
 
