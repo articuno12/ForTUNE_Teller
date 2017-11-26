@@ -8,7 +8,7 @@ from sklearn.model_selection import GridSearchCV   #Perforing grid search
 from sklearn.metrics import mean_squared_error,mean_absolute_error,accuracy_score,f1_score, confusion_matrix
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("../dataset/final_50.csv")
+data = pd.read_csv("../dataset/final_debut_50.csv")
 print data.shape
 
 Y = data["label"]
@@ -40,12 +40,13 @@ xgb_params = {
     'colsample_bytree' : 1,
     'gamma' : 1
 }
-{'colsample_bytree': 1, 'learning_rate': 0.08, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8, 'max_depth': 10, 'gamma': 0.01}
-model = xgb.XGBClassifier(learning_rate = 0.08, max_depth = 10,
-						n_estimators = 500, silent = xgb_params['silent'],
+{'colsample_bytree': 0.8, 'learning_rate': 0.05, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.5, 'max_depth': 10, 'gamma': 0.01}
+{'colsample_bytree': 0.8, 'learning_rate': 0.1, 'min_child_weight': 0.8, 'n_estimators': 800, 'subsample': 0.5, 'max_depth': 10, 'gamma': 0.05}
+model = xgb.XGBClassifier(learning_rate = 0.1, max_depth = 10,
+						n_estimators = 800, silent = xgb_params['silent'],
 						objective = xgb_params['objective'],
-						min_child_weight = 1, gamma = 0.01 ,
-						subsample = 0.8, colsample_bytree = 0.8)
+						min_child_weight = 0.8, gamma = 0.05 ,
+						subsample = 0.5, colsample_bytree = 0.8)
 model.fit(X_TRAIN,y_train)
 y_predcited = model.predict(X_TEST)
 print accuracy_score(y_test,y_predcited)
