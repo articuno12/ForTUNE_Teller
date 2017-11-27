@@ -32,7 +32,7 @@ X_TEST= X_tEST.drop("ID", axis=1)
 y_labels = X_test["label"]
 
 
-ridge_regress = linear_model.ElasticNet(alpha=0.1,l1_ratio=0.5)
+ridge_regress = linear_model.ElasticNet(alpha=0.1,l1_ratio=0.9)
 ridge_regress.fit(X_TRAIN, y_train)
 #print ridge_regress
 unrounded_y_pred = ridge_regress.predict(X_TEST)
@@ -44,8 +44,8 @@ flag = inc/len(X_TRAIN)
 #print "flag = "
 #print flag
 final_acc = 1 - flag
-for i in range(len(y_pred)):
-    print abs(y_pred[i])
+# for i in range(len(y_pred)):
+#     print abs(y_pred[i])
 label = []
 
 for i in range(len(y_pred)):
@@ -60,10 +60,10 @@ for i in range(len(y_pred)):
 	if(y_pred[i]>3000000):
 		label.append(5)
 
-print "labels"
+#print "labels"
 
-for i in range(len(label)):
-	print label[i]
+# for i in range(len(label)):
+# 	print label[i]
 
 acc_score = sklearn.metrics.accuracy_score(y_labels, label)
 print acc_score
